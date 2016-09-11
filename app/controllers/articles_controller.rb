@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :load_article, only: [:show, :edit, :update, :destroy]
+  before_action :load_article, only: [:show, :edit, :update, :destroy, :like]
 
   def index
     @articles = Article.all
@@ -38,6 +38,11 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     redirect_to articles_path
+  end
+
+  def like
+    @article.likes.create
+    redirect_to @article
   end
 
   private

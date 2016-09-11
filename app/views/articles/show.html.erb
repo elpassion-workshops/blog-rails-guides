@@ -1,5 +1,7 @@
 <h1><%= @article.title %> (<%= @article.likes.count %>)</h1>
 
+<%= link_to 'Like', like_article_path(@article), method: :post %>
+
 <p><%= @article.text %></p>
 
 <h2>Comments</h2>
@@ -12,7 +14,11 @@
 <% end %>
 
 <% @comments.each do |comment| %>
-  <p><%= comment.text %> (<%= comment.likes.count %>) [<%= comment.created_at.to_s(:long) %>]</p>
+  <p>
+    <%= comment.text %> (<%= comment.likes.count %>)
+    <%= link_to 'Like', like_article_comment_path(@article, comment), method: :post %>
+    [<%= comment.created_at.to_s(:long) %>]
+  </p>
 <% end %>
 
 <%= link_to 'Back', articles_path %>
