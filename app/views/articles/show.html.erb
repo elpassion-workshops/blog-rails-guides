@@ -5,13 +5,16 @@
 <p><%= @article.text %></p>
 
 <h2>Comments</h2>
-<%= form_for [@article, @article.comments.build] do |f| %>
-  <p>
-    <%= f.text_area :text, placeholder: 'New comment' %>
-  </p>
+<%= link_to 'Add new comment', '#', id: 'toggle-comment-form' %>
+<div id="comment-form">
+  <%= form_for [@article, @article.comments.build] do |f| %>
+    <p>
+      <%= f.text_area :text, placeholder: 'New comment' %>
+    </p>
 
-  <p><%= f.submit %></p>
-<% end %>
+    <p><%= f.submit %></p>
+  <% end %>
+</div>
 
 <% @comments.each do |comment| %>
   <p>
