@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :articles do
-    resources :comments
+    post :like, on: :member
+
+    resources :comments do
+      post :like, on: :member
+    end
   end
-
-
 
   get 'welcome/index'
 
