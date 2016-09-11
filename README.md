@@ -6,4 +6,4 @@ Hi, I was here too - Piotr :)
 
 Michał wita:)
 
-me too, Marta :)
+me too, Marta :) o, o 
